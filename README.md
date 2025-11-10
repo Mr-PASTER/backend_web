@@ -89,6 +89,27 @@ curl -X POST "http://localhost:10000/projects/" \
   }'
 ```
 
+## Деплой
+
+### Бесплатные варианты деплоя
+
+#### Railway (Рекомендуется)
+1. Зарегистрируйтесь на [Railway](https://railway.app)
+2. Подключите GitHub репозиторий
+3. Railway автоматически обнаружит Python проект и задеплойт его
+4. API будет доступно по сгенерированному URL
+
+#### Render
+1. Зарегистрируйтесь на [Render](https://render.com)
+2. Создайте новый Web Service
+3. Подключите GitHub репозиторий
+4. Укажите команду запуска: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+
+#### Fly.io
+1. Установите flyctl: `curl -L https://fly.io/install.sh | sh`
+2. `fly launch` в корне проекта
+3. `fly deploy` для деплоя
+
 ## Структура проекта
 
 ```
@@ -108,6 +129,8 @@ backend/
 │       └── projects.py    # Роуты для проектов
 ├── main.py                # Точка входа FastAPI
 ├── requirements.txt       # Зависимости
+├── railway.json          # Конфигурация для Railway
+├── runtime.txt           # Версия Python для деплоя
 └── README.md             # Документация
 ```
 
