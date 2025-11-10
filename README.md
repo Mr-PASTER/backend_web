@@ -14,16 +14,16 @@ pip install -r requirements.txt
 Запустите сервер с помощью uvicorn:
 
 ```bash
-uvicorn main:app --reload
+uvicorn main:app --reload --port 4000
 ```
 
-Сервер будет доступен по адресу: http://localhost:8000
+Сервер будет доступен по адресу: http://localhost:4000
 
 ## Документация API
 
 После запуска сервера доступна интерактивная документация:
-- Swagger UI: http://localhost:8000/docs
-- ReDoc: http://localhost:8000/redoc
+- Swagger UI: http://localhost:4000/docs
+- ReDoc: http://localhost:4000/redoc
 
 ## API Endpoints
 
@@ -49,7 +49,7 @@ uvicorn main:app --reload
 
 ### Создание рычага
 ```bash
-curl -X POST "http://localhost:8000/levers/" \
+curl -X POST "http://localhost:4000/levers/" \
   -H "Content-Type: application/json" \
   -d '{
     "name": "Рычаг 1",
@@ -61,22 +61,22 @@ curl -X POST "http://localhost:8000/levers/" \
 
 ### Получение всех рычагов
 ```bash
-curl "http://localhost:8000/levers/"
+curl "http://localhost:4000/levers/"
 ```
 
 ### Установка позиции рычага
 ```bash
-curl -X PATCH "http://localhost:8000/levers/1/position?position=75.5"
+curl -X PATCH "http://localhost:4000/levers/1/position?position=75.5"
 ```
 
 ### Переключение состояния рычага
 ```bash
-curl -X PATCH "http://localhost:8000/levers/1/toggle"
+curl -X PATCH "http://localhost:4000/levers/1/toggle"
 ```
 
 ### Создание проекта
 ```bash
-curl -X POST "http://localhost:8000/projects/" \
+curl -X POST "http://localhost:4000/projects/" \
   -H "Content-Type: application/json" \
   -d '{
     "title": "Новый сайт портфолио",
